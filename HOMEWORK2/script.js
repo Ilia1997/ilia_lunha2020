@@ -65,7 +65,7 @@ if(isAdult>=18){
     alert("Ви середнього віку");
 }
 
-task 6
+//task 6
 
 let side_1 = prompt("Введіть довжину 1 сторони трикутника");
 let side_2 = prompt("Введіть довжину 2 сторони трикутника");
@@ -87,7 +87,7 @@ if(side_1**2 == side_2**2 + side_3**2 || side_2**2 == side_1**2 + side_3**2|| si
     console.log(" Це не прямокутний трикутник")
 }
 
-task 7
+//task 7
 
 let now = new Date();
 
