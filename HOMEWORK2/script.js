@@ -24,7 +24,7 @@ console.log(typeof res4); // "number"
 let num = prompt("Enter number");
 if (num % 2 == 0 && num < 0) {
   console.log(num + " is even number");
-} else if (num == 7) {
+} else if (num == 7 && num % 7 == 0) {
   console.log("Your enter number 7 ");
 } else {
   console.log(num + " isn't even number");
