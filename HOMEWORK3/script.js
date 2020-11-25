@@ -88,16 +88,18 @@ function lastElem(array, numOfAr = 1) {
 
   if (array.length < numOfAr) {
     return array;
-  } else if (numOfAr > g) {
+  } else if (numOfAr >= g) {
     for (let i = 0; i < numOfAr; i++) {
       let h = array.length - l;
 
       o[i] = array[h];
       l = l - 1;
     }
+    console.log(o);
     return o;
   }
 }
+console.log(lastElem([3, 4, 10, -5]));
 
 // task 8
 let someText = "i love java script";
