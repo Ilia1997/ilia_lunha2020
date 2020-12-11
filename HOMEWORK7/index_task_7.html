@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select name="country" id="country">
+      <option value="ger">Germany</option>
+      <option value="usa">USA</option>
+      <option value="ukr">Ukraine</option>
+    </select>
+
+    <select name="cities" id="cities"></select>
+    <p>
+      <span id="h"></span>
+      <span id="m"></span>
+    </p>
+    <script>
+      var city = {
+        ger: ["Berlin", "Bavaria", "Gerta"],
+        usa: ["Brooklin", "Boston", "Chicago"],
+        ukr: ["Kyiv", "Lviv", "Chernivtsi"],
+      };
+      var country = document.getElementById("country");
+      var cities = document.getElementById("cities");
+      window.onload = selectCountry;
+      country.onchange = selectCountry;
+
+      function selectCountry(ev) {
+        cities.innerHTML = "";
+        var c = this.value || "ger",
+          o;
+        for (let i = 0; i < city[c].length; i++) {
+          o = new Option(city[c][i], i, false, false);
+          cities.add(o);
+        }
+        var selectedValue2 = cities.options[cities.selectedIndex];
+
+        var selectedValue = country.options[country.selectedIndex];
+
+        h.innerHTML = selectedValue.text;
+        m.innerHTML = selectedValue2.text;
+
+        var x = document.getElementById("cities").selectedIndex;
+        var y = document.getElementById("cities").options;
+      }
+    </script>
+  </body>
+</html>

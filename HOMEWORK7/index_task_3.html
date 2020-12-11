@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body id="body">
+    <button id="blue" onclick="blueBG()">Click to make the page blue</button>
+    <button id="pink">Double-click to make the page pink</button>
+    <button id="brown">Click and hold to make the page brown</button>
+    <a href="#" id="yellow">Hover over to make page yellow</a>
+    <script>
+      function blueBG() {
+        body.style.background = "blue";
+      }
+      let btn = document.querySelector("#pink");
+      btn.addEventListener("dblclick", function (e) {
+        btn.classList.toggle((body.style.background = "pink"));
+      });
+
+      let btn2 = document.querySelector("#brown");
+      btn2.addEventListener("mousedown", function (e) {
+        btn2.classList.toggle((body.style.background = "brown"));
+      });
+      btn2.addEventListener("click", function (e) {
+        btn2.classList.toggle((body.style.background = "none"));
+      });
+
+      let btn3 = document.querySelector("#yellow");
+      btn3.addEventListener("mousemove", function (e) {
+        btn2.classList.toggle((body.style.background = "yellow"));
+      });
+      btn3.addEventListener("mouseout", function (e) {
+        btn3.classList.toggle((body.style.background = "none"));
+      });
+    </script>
+  </body>
+</html>
