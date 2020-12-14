@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function valCard(card) {
+        let val = /^\d{4}[-]\d{4}[-]\d{4}[-]\d{4}$/;
+        if (val.test(card)) {
+          console.log("You enter correct number");
+        } else {
+          console.log("You enter wrong number");
+        }
+      }
+      valCard("1111-2222-3333-4444");
+      valCard("1111-2222-3333-44442");
+    </script>
+  </body>
+</html>
