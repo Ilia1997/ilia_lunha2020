@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <input class="my_input" type="checkbox" name="option2" value="a2">Windows 2000<Br>
+        <input class="my_input" type="checkbox" name="option3" value="a3">System X<Br> 
+        <input class="my_input" type="checkbox" name="option4" value="a4">Linux<Br> 
+        <input class="my_input" type="checkbox" name="option6" value="a6">System<Br> 
+        <input class="my_input"type="checkbox" name="option7" value="a7">Lin<Br> 
+        <input class="my_input" type="checkbox" name="option5" value="a5">X3-DOS</p>
+    <script>
+        let myCount = function(){
+        
+           
+           if($(".my_input:checked").length>=3)
+             { $('.my_input').prop('disabled', true)
+               
+        }
+    }
+        myCount();
+        $('input').on('click', myCount);
+
+    </script>
+</body>
+</html>
