@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function mapBuilder(keysArray, valuesArrays) {
+        let map = new Map();
+
+        for (let i = 0; i < keysArray.length; i++) {
+          map.set(keysArray[i], valuesArrays[i]);
+        }
+        return map;
+      }
+
+      let keys = [1, 2, 3, 4];
+      let values = ["div", "span", "b", "i"];
+      let map = mapBuilder(keys, values);
+      console.log(map.size); // 4
+      console.log(map.get(2)); // "span"
+    </script>
+  </body>
+</html>
