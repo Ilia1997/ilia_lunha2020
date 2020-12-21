@@ -123,7 +123,7 @@
               </div>
             </div>
             <div class="tv_comp_items">
-              <div class="list_of_chanel">
+              <div class="tv_components">
                 <div class="wrapper_loc">
                   <div class="list_of_chanel_wrap">
                     <p>Отримати список каналів</p>
@@ -165,6 +165,83 @@
                   </div>
                   <div class="setting_info">
                     <p></p>
+                  </div>
+                </div>
+                <div class="show_tv_set">
+                  <div class="wrap_stc">
+                    <div class="channels">
+                      <ul class="all_set">
+                        <li id="date_ch">Дата</li>
+                        <li id="sound_set">Звук</li>
+                        <li id="wifi_set">Wi-fi</li>
+                        <li id="connection_type">Тип зєднання</li>
+                        <li id="eco_set">Економ режим</li>
+                      </ul>
+                    </div>
+                    <div class="channel_on">
+                      <div class="channel_show_set">
+                        <div class="date_ch">
+                          <label class="date_form" for="start"
+                            ><p>Змінити дату:</p>
+                          </label>
+
+                          <input
+                            type="date"
+                            id="start"
+                            name="trip-start"
+                            value="2018-07-22"
+                            min="1995-01-01"
+                            max="2021-12-31"
+                          />
+                        </div>
+                        <div class="sound_set">
+                          <div class="slidecontainer">
+                            <p>Звук телевізора:</p>
+
+                            <input type="range" min="1" max="100" value="50" />
+                            <p id="sound_2">50%</p>
+                          </div>
+                        </div>
+                        <div class="wifi_set">
+                          <div class="slidecontainer">
+                            <p id="wifi_state">Wi-fi вимкнуто</p>
+                            <div class="wifi_slider_wrap">
+                              <label class="switch_wifi">
+                                <input type="checkbox" />
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="connection_type">
+                          <div class="connection_wrap">
+                            <div class="connection_type_item">
+                              <p id="c1">Супутник</p>
+                            </div>
+                            <div class="connection_type_item">
+                              <p id="c2">T2</p>
+                            </div>
+                            <div class="connection_type_item">
+                              <p id="c3">Wi-fi</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="eco_set">
+                          <div class="slidecontainer">
+                            <p id="eco_state">Економ режим вимкнуто</p>
+                            <div class="eco_slider_wrap">
+                              <label class="switch_eco">
+                                <input type="checkbox" />
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="channel_set_text">
+                        <p>Ви налаштовуєте Дата</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

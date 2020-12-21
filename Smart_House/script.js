@@ -1,3 +1,4 @@
+// toogle class for main page
 $(document).ready(function () {
   $(".main_btn_bg").click(function (event) {
     $(".main_btn_bg, #sidebar,.title,.tit_h1, .head_content_wrap ").toggleClass(
@@ -8,31 +9,31 @@ $(document).ready(function () {
 });
 
 class SmartHouse {
+  // func for turn on and turn off switches
   turnOnAndTurnOff() {
     let tn1 = this.tn.tn1;
     let tn2 = this.tn.tn2;
     let tn3 = this.tn.tn3;
     let tn4 = this.tn.tn4;
     $(tn1).click(function (event) {
-      if ($(tn2).css("background-color") == "rgb(204, 204, 204)") {
+      if ($(tn2).css("background-color") === "rgb(204, 204, 204)") {
         $(tn3).text(tn4 + " ввімкнено");
-      } else if ($(tn2).css("background-color") == "rgb(33, 150, 243)") {
+      } else if ($(tn2).css("background-color") === "rgb(33, 150, 243)") {
         $(tn3).text(tn4 + " вимкнено");
       }
     });
   }
-
+  // func for create new items
   create() {
     let val;
     let h = 1;
-    $(document).ready(function () {
-      $(".add_new_comp").click(function (event) {
-        $(".in_add").val("");
-        $(".add_new_comp_form").css("display", "flex");
-      });
-      $(".subm_btn, .subm_btn_del").click(function (event) {
-        $(".add_new_comp_form").css("display", "none");
-      });
+
+    $(".add_new_comp").click(function (event) {
+      $(".in_add").val("");
+      $(".add_new_comp_form").css("display", "flex");
+    });
+    $(".subm_btn, .subm_btn_del").click(function (event) {
+      $(".add_new_comp_form").css("display", "none");
     });
 
     $("html").on("click", ".subm_btn", function (event) {
@@ -85,7 +86,7 @@ class SmartHouse {
         color: "#e0e5ea",
         "padding-left": "3px",
       });
-
+      // func for update new items
       $(document).on("click", "span", function (e) {
         let lc = $(e.target).parent()[0];
         let labelClName = $(lc).attr("class");
@@ -111,21 +112,27 @@ class SmartHouse {
           }
         });
       });
-      $(document).ready(function () {
-        $("html").on("click", ".some_del_btn_item", function (event) {
-          $(this).parent().parent().remove();
-        });
+      // func for delete new items
+      $("html").on("click", ".some_del_btn_item", function (event) {
+        $(this).parent().parent().remove();
       });
+
       h++;
     });
+    // func to create new items by clicking 'Enter' on input
+    $(".in_add").keydown(function (event) {
+      if (event.which === 13) {
+        $(".subm_btn")[0].click();
+      }
+    });
   }
+  // func for delete items
   delete() {
     let dn1 = this.dn.dn1;
     let dn2 = this.dn.dn2;
-    $(document).ready(function () {
-      $(dn1).click(function (event) {
-        $(dn2).remove();
-      });
+
+    $(dn1).click(function (event) {
+      $(dn2).remove();
     });
   }
 }
@@ -157,6 +164,7 @@ class Jalousie extends SmartHouse {
     tn3: ".jalousie_info p",
     tn4: "Жалюзі",
   };
+  // Overriding turnOnAndTurnOff()
   turnOnAndTurnOff() {
     let tn1 = this.tn.tn1;
     let tn2 = this.tn.tn2;
@@ -199,27 +207,35 @@ class Tv extends SmartHouse {
     tn3: ".tv_info p",
     tn4: "Телевізор",
   };
+  // creating new func for additional parameters Tv class
 
   whatchParam() {
-    $(document).ready(function () {
-      $(".tv_func_icon").click(function (event) {
-        $(".tv_func_icon, .tv_comp,.tv_comp_items").toggleClass("active");
-        if (
-          $(".switch_tv span").css("background-color") == "rgb(204, 204, 204)"
-        ) {
-          $(".switch_tv span")[0].click();
-        }
-      });
-      $(".list_of_chanel_wrap").click(function (event) {
-        $(".show_tv_chan, .list_of_chanel_wrap").toggleClass("active");
-      });
-      $(".search_of_chanel_wrap").click(function (event) {
-        $(".search_info").toggleClass("active");
-      });
+    $(".tv_func_icon").click(function (event) {
+      $(".tv_func_icon, .tv_comp,.tv_comp_items").toggleClass("active");
+      if (
+        $(".switch_tv span").css("background-color") == "rgb(204, 204, 204)"
+      ) {
+        $(".switch_tv span")[0].click();
+      }
+    });
+    $(".list_of_chanel_wrap").click(function (event) {
+      $(".show_tv_chan, .list_of_chanel_wrap").toggleClass("active");
+    });
+    $(".search_of_chanel_wrap").click(function (event) {
+      $(".search_info").toggleClass("active");
+    });
+    $(".setting_of_chanel_wrap").click(function (event) {
+      $(".show_tv_set").toggleClass("active");
+      let date = new Date();
+
+      $(".date_ch input[type='date']").val(
+        date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate()
+      );
     });
   }
+  // creating new func for view tv channels
   seeChannel() {
-    $(document).on("click", "li", function (e) {
+    $(document).on("click", ".all_chan li", function (e) {
       let lc = $(e.target)[0];
       const textChan = $(lc).text();
 
@@ -228,12 +244,51 @@ class Tv extends SmartHouse {
         "background",
         "url(./img/" + textChan + ".jpg) no-repeat center top/ cover"
       );
-      // let labelClName = $(lc).attr("class");channel_photo
-      // console.log(labelClName);
+    });
+  }
+  // creating new func for sound change
+  changeSound() {
+    $(".slidecontainer input").on("input", function () {
+      $("#sound_2").text($(".slidecontainer input").val() + "%");
+    });
+  }
+  // creating new func for change wi-fi state
+  changeWifiState() {
+    this.tn.tn1 = ".switch_wifi";
+    this.tn.tn2 = ".switch_wifi span";
+    this.tn.tn3 = "#wifi_state";
+    this.tn.tn4 = "Wi-fi";
+    return this.turnOnAndTurnOff();
+  }
+  // creating new func for change economy mode state
+  changeEconomyModeState() {
+    this.tn.tn1 = ".switch_eco";
+    this.tn.tn2 = ".switch_eco span";
+    this.tn.tn3 = "#eco_state";
+    this.tn.tn4 = "Економ режим";
+    return this.turnOnAndTurnOff();
+  }
+  // creating new func for change connection type
+  changeConnectionType() {
+    $(document).on("click", ".connection_type_item p", function (e) {
+      $(".connection_type_item").children().removeClass("active");
+      $(this).addClass("active");
+    });
+  }
+  // creating new func for show all settings
+  showSetting() {
+    $(document).on("click", ".all_set li", function (e) {
+      let lc = $(e.target)[0];
+      const textChan = $(lc).text();
+      const idElem = $(lc).attr("id");
+
+      $(".channel_set_text p").text("Ви налаштовуєте " + textChan);
+      $(".channel_show_set").children().css("display", "none");
+      $("." + idElem).css("display", "flex");
     });
   }
 }
-
+// сreate classes and activate methods
 const light = new Light();
 light.turnOnAndTurnOff();
 light.delete();
@@ -248,6 +303,10 @@ tv.turnOnAndTurnOff();
 tv.delete();
 tv.whatchParam();
 tv.seeChannel();
-
+tv.changeSound();
+tv.changeWifiState();
+tv.changeConnectionType();
+tv.showSetting();
+tv.changeEconomyModeState();
 const sh = new SmartHouse();
 sh.create();

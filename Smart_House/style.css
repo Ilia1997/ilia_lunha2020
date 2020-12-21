@@ -238,7 +238,9 @@ body.lock {
 .switch_l,
 .switch_w,
 .switch_tv,
-.switch_s {
+.switch_s,
+.switch_wifi,
+.switch_eco {
   position: relative;
   display: inline-block;
   width: 60px;
@@ -250,7 +252,9 @@ body.lock {
 .switch_l input,
 .switch_w input,
 .switch_tv input,
-.switch_s input {
+.switch_s input,
+.switch_wifi input,
+.switch_eco input {
   display: none;
 }
 
@@ -396,9 +400,7 @@ input:checked + .slider:before {
 .tv_info p {
   margin-top: 5px;
 }
-.tv_comp_items {
-  display: none;
-}
+
 .tv_comp_items.active {
   display: flex;
   flex-direction: column;
@@ -409,11 +411,7 @@ input:checked + .slider:before {
   border-radius: 5px;
   background-color: rgb(25, 10, 58);
 }
-.list_of_chanel {
-  display: flex;
 
-  flex-direction: column;
-}
 .wrapper_loc,
 .wrapper_soc,
 .wrapper_set,
@@ -422,7 +420,8 @@ input:checked + .slider:before {
   justify-content: center;
 }
 .wrapper_soc,
-.wrapper_set {
+.wrapper_set,
+.tv_components {
   display: flex;
   flex-direction: column;
 }
@@ -449,12 +448,11 @@ input:checked + .slider:before {
   padding: 10px;
   font-size: 17px;
 }
-.list_of_chanel_wrap p:nth-child(2) {
-  display: none;
-}
+.list_of_chanel_wrap p:nth-child(2),
 .list_of_chanel_wrap.active p:nth-child(1) {
   display: none;
 }
+
 .list_of_chanel_wrap.active p:nth-child(2) {
   display: block;
 }
@@ -466,12 +464,10 @@ input:checked + .slider:before {
   transition: all 0.3s;
   font-size: 18px;
 }
-.show_tv_chan {
-  display: none;
-}
 .show_tv_chan.active {
   display: flex;
 }
+
 .wrap_stc {
   display: flex;
   border: 1px solid rgb(246, 246, 248);
@@ -486,7 +482,6 @@ input:checked + .slider:before {
 .channel_photo {
   background: url("./img/1+1.jpg") no-repeat center top/ cover;
   margin: 3px;
-
   border-radius: 2px;
   width: 100%;
   height: 100%;
@@ -500,10 +495,11 @@ input:checked + .slider:before {
 .channels {
   flex: 1 0 40%;
 }
-ul.all_chan {
-}
+
 ul.all_chan li,
-.channel_on_text p {
+ul.all_set li,
+.channel_on_text p,
+.channel_set_text p {
   font-size: 25px;
   color: #fff;
   padding: 9px;
@@ -512,18 +508,21 @@ ul.all_chan li,
   text-align: center;
   margin: 3px;
 }
-ul.all_chan li:hover {
+ul.all_chan li:hover,
+ul.all_set li:hover {
   background-color: rgb(242, 242, 243);
   color: rgb(12, 11, 11);
   transition: all 0.3s;
   cursor: pointer;
 }
+ul.all_chan li:active,
+ul.all_set li:active {
+  background-color: rgb(45, 45, 214);
+}
 .search_of_chanel_wrap {
   margin: 10px;
 }
-.search_info {
-  display: none;
-}
+
 .search_info.active {
   display: flex;
   justify-content: center;
@@ -536,14 +535,97 @@ ul.all_chan li:hover {
   padding: 10px;
   align-items: center;
 }
-.some_wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .search_info p {
   text-align: center;
   margin: 3px;
   font-size: 25px;
   color: #fff;
+}
+.date_form p {
+  color: #fff;
+  font-size: 26px;
+}
+.channel_show_set {
+  flex: 1 1 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.channel_set_text {
+  flex: 1 0 20%;
+}
+
+.date_ch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.date_ch input {
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  max-height: 35px;
+  max-width: 200px;
+  font-size: 20px;
+  border-radius: 1.5px;
+}
+.slidecontainer p {
+  font-size: 20px;
+  margin-top: 5px;
+  color: #fff;
+  text-align: center;
+}
+.slidecontainer input {
+  margin-top: 20px;
+}
+.sound_set,
+.wifi_set,
+.eco_set,
+.show_tv_set,
+.connection_type,
+.search_info,
+.show_tv_chan,
+.tv_comp_items {
+  display: none;
+}
+
+.show_tv_set.active,
+.wifi_slider_wrap,
+.eco_slider_wrap,
+.connection_type_item,
+.some_wrap {
+  display: flex;
+  justify-content: center;
+}
+#wifi_state,
+#eco_state {
+  margin-bottom: 20px;
+}
+
+.connection_type.active {
+  display: block;
+  width: 100%;
+}
+
+.connection_type_item p {
+  font-size: 25px;
+  color: #fff;
+  padding: 10px 30px;
+  margin-bottom: 5px;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+}
+
+.connection_type_item p:hover {
+  color: rgb(10, 10, 10);
+  background-color: #fff;
+}
+.connection_type_item p.active {
+  background-color: rgb(73, 62, 221);
 }
