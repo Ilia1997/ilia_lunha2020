@@ -15,7 +15,7 @@ class SmartHouse {
     let tn2 = this.tn.tn2;
     let tn3 = this.tn.tn3;
     let tn4 = this.tn.tn4;
-    $(tn1).click(function (event) {
+    $(tn1).click(function () {
       if ($(tn2).css("background-color") === "rgb(204, 204, 204)") {
         $(tn3).text(tn4 + " ввімкнено");
       } else if ($(tn2).css("background-color") === "rgb(33, 150, 243)") {
@@ -28,15 +28,15 @@ class SmartHouse {
     let val;
     let h = 1;
 
-    $(".add_new_comp").click(function (event) {
+    $(".add_new_comp").click(function () {
       $(".in_add").val("");
       $(".add_new_comp_form").css("display", "flex");
     });
-    $(".subm_btn, .subm_btn_del").click(function (event) {
+    $(".subm_btn, .subm_btn_del").click(function () {
       $(".add_new_comp_form").css("display", "none");
     });
 
-    $("html").on("click", ".subm_btn", function (event) {
+    $("html").on("click", ".subm_btn", function () {
       val = $(".in_add").val();
 
       $(".wrap").append(
@@ -91,7 +91,7 @@ class SmartHouse {
         let lc = $(e.target).parent()[0];
         let labelClName = $(lc).attr("class");
 
-        $("." + labelClName).click(function (event) {
+        $("." + labelClName).click(function () {
           let g = $(this).parent().parent().parent()[0];
           let comonentName = $(g).find("h1").text();
 
@@ -113,7 +113,7 @@ class SmartHouse {
         });
       });
       // func for delete new items
-      $("html").on("click", ".some_del_btn_item", function (event) {
+      $("html").on("click", ".some_del_btn_item", function () {
         $(this).parent().parent().remove();
       });
 
@@ -131,7 +131,7 @@ class SmartHouse {
     let dn1 = this.dn.dn1;
     let dn2 = this.dn.dn2;
 
-    $(dn1).click(function (event) {
+    $(dn1).click(function () {
       $(dn2).remove();
     });
   }
@@ -170,7 +170,7 @@ class Jalousie extends SmartHouse {
     let tn2 = this.tn.tn2;
     let tn3 = this.tn.tn3;
     let tn4 = this.tn.tn4;
-    $(tn1).click(function (event) {
+    $(tn1).click(function () {
       if ($(tn2).css("background-color") == "rgb(204, 204, 204)") {
         $(tn3).text(tn4 + " відкриті");
       } else if ($(tn2).css("background-color") == "rgb(33, 150, 243)") {
@@ -210,7 +210,7 @@ class Tv extends SmartHouse {
   // creating new func for additional parameters Tv class
 
   whatchParam() {
-    $(".tv_func_icon").click(function (event) {
+    $(".tv_func_icon").click(function () {
       $(".tv_func_icon, .tv_comp,.tv_comp_items").toggleClass("active");
       if (
         $(".switch_tv span").css("background-color") == "rgb(204, 204, 204)"
@@ -218,13 +218,17 @@ class Tv extends SmartHouse {
         $(".switch_tv span")[0].click();
       }
     });
-    $(".list_of_chanel_wrap").click(function (event) {
+    $(".list_of_chanel_wrap").click(function () {
       $(".show_tv_chan, .list_of_chanel_wrap").toggleClass("active");
     });
-    $(".search_of_chanel_wrap").click(function (event) {
+    $(".search_of_chanel_wrap").click(function () {
       $(".search_info").toggleClass("active");
+      setTimeout(function () {
+        $("#anim").text("Нових каналів не знайдено");
+        $(".loader").css("display", "none");
+      }, 6000);
     });
-    $(".setting_of_chanel_wrap").click(function (event) {
+    $(".setting_of_chanel_wrap").click(function () {
       $(".show_tv_set").toggleClass("active");
       let date = new Date();
 
@@ -268,26 +272,42 @@ class Tv extends SmartHouse {
     this.tn.tn4 = "Економ режим";
     return this.turnOnAndTurnOff();
   }
-  // creating new func for change connection type
-  changeConnectionType() {
-    $(document).on("click", ".connection_type_item p", function (e) {
-      $(".connection_type_item").children().removeClass("active");
+  // creating new func for change state li items with id = state
+  changeStateLiItems() {
+    $(document).on("click", "#state li", function (e) {
+      let elem = $(e.target)[0];
+      const className = $(elem).parent().attr("class");
+      $("." + className)
+        .children()
+        .removeClass("active");
       $(this).addClass("active");
     });
   }
+
   // creating new func for show all settings
   showSetting() {
     $(document).on("click", ".all_set li", function (e) {
-      let lc = $(e.target)[0];
-      const textChan = $(lc).text();
-      const idElem = $(lc).attr("id");
+      let elem = $(e.target)[0];
+      const textChan = $(elem).text();
+      const idElem = $(elem).attr("id");
 
       $(".channel_set_text p").text("Ви налаштовуєте " + textChan);
       $(".channel_show_set").children().css("display", "none");
       $("." + idElem).css("display", "flex");
     });
   }
+  // Overriding delete()
+  delete() {
+    let dn1 = this.dn.dn1;
+    let dn2 = this.dn.dn2;
+
+    $(dn1).click(function () {
+      $(dn2).remove();
+      $(".tv_comp_items").css("display", "none");
+    });
+  }
 }
+
 // сreate classes and activate methods
 const light = new Light();
 light.turnOnAndTurnOff();
@@ -305,8 +325,9 @@ tv.whatchParam();
 tv.seeChannel();
 tv.changeSound();
 tv.changeWifiState();
-tv.changeConnectionType();
+tv.changeStateLiItems();
 tv.showSetting();
 tv.changeEconomyModeState();
+
 const sh = new SmartHouse();
 sh.create();
