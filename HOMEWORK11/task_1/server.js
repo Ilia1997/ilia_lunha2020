@@ -6,8 +6,8 @@ let userName = os.userInfo().username;
 let osVersion = os.type();
 let time = os.uptime();
 
-const pathDir = path.dirname("C:/NodeJS/quux");
-const baseName = path.basename("C:/NodeJS/status.js");
+const pathDir = __dirname;
+const baseName = path.win32.basename(__filename);
 
 http
   .createServer(function (request, response) {
