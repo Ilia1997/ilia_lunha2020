@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Download books</button>
+    <ul id="ul"></ul>
+    <script>
+      document.addEventListener("click", function () {
+        fetch("books.json")
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("btn").remove();
+            for (let i in data) {
+              let li = document.createElement("li");
+              li.innerHTML = data[i].author;
+              let r = document.getElementById("ul");
+              r.append(li);
+            }
+          });
+      });
+    </script>
+  </body>
+</html>
