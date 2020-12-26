@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <body>
+    <header>
+      <div class="head_wrap">
+        <div class="container">
+          <div class="head_content_wrap">
+            <div class="title">
+              <h1 class="tit_h1">Розумний Будинок</h1>
+            </div>
+            <div class="main_btn">
+              <div class="main_btn_bg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="main_context">
+      <div class="container">
+        <div id="sidebar">
+          <div class="first_block_group">
+            <div class="add_new_comp"><p>Додати компонент</p></div>
+            <div class="add_new_comp_form">
+              <input
+                class="in_add"
+                type="text"
+                placeholder="Введіть компонент"
+              />
+              <div class="subm_btn"><p>Додати</p></div>
+              <div class="subm_btn_del"></div>
+            </div>
+          </div>
+          <div class="wrap">
+            <div class="light_comp">
+              <div class="name_wrap">
+                <div class="name_lgh">
+                  <h1>Світильник</h1>
+                </div>
+                <div class="light_info">
+                  <p>Світильник вимкнено</p>
+                </div>
+              </div>
+              <div class="light_btn">
+                <div class="light_btn_item">
+                  <label class="switch_l">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="light_del_btn">
+                <div class="light_del_btn_item"></div>
+              </div>
+            </div>
+            <div class="jalousie_comp">
+              <div class="name_wrap">
+                <div class="name_lgh">
+                  <h1>Жалюзі</h1>
+                </div>
+                <div class="jalousie_info">
+                  <p>Жалюзі закриті</p>
+                </div>
+              </div>
+              <div class="light_btn">
+                <div class="light_btn_item">
+                  <label class="switch_j">
+                    <input id="one" type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="light_del_btn">
+                <div class="jalousie_del_btn_item"></div>
+              </div>
+            </div>
+            <div class="warm_comp">
+              <div class="name_wrap">
+                <div class="name_lgh">
+                  <h1>Обігрів</h1>
+                </div>
+                <div class="warm_info">
+                  <p>Обігрів вимкнено</p>
+                </div>
+              </div>
+              <div class="light_btn">
+                <div class="light_btn_item">
+                  <label class="switch_w">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="light_del_btn">
+                <div class="warm_del_btn_item"></div>
+              </div>
+            </div>
+            <div class="tv_comp">
+              <div class="name_wrap">
+                <div class="name_lgh">
+                  <h1>Телевізор</h1>
+                </div>
+                <div class="tv_info">
+                  <p>Телевізор вимкнено</p>
+                  <div class="tv_func_icon"></div>
+                </div>
+              </div>
+              <div class="light_btn">
+                <div class="light_btn_item">
+                  <label class="switch_tv">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="light_del_btn">
+                <div class="tv_del_btn_item"></div>
+              </div>
+            </div>
+            <div class="tv_comp_items">
+              <div class="tv_components">
+                <div class="wrapper_loc">
+                  <div class="list_of_chanel_wrap">
+                    <p>Отримати список каналів</p>
+                    <p>Згорнути список каналів</p>
+                  </div>
+                </div>
+                <div class="show_tv_chan">
+                  <div class="wrap_stc">
+                    <div class="channels">
+                      <ul class="all_chan" id="state">
+                        <li>1+1</li>
+                        <li>2+2</li>
+                        <li>News</li>
+                        <li>Inter</li>
+                        <li>CTБ</li>
+                      </ul>
+                    </div>
+                    <div class="channel_on">
+                      <div class="channel_photo"></div>
+                      <div class="channel_on_text"><p>Ви дивитесь 1+1</p></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="wrapper_soc">
+                  <div class="some_wrap">
+                    <div class="search_of_chanel_wrap">
+                      <p>Пошук каналів</p>
+                    </div>
+                  </div>
+                  <div class="search_info">
+                    <p id="anim">Іде пошук каналів</p>
+                    <div class="loader">
+                      <div class="loader-2"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="wrapper_set">
+                  <div class="some_wrap">
+                    <div class="setting_of_chanel_wrap">
+                      <p>Налаштування</p>
+                    </div>
+                  </div>
+                  <div class="setting_info">
+                    <p></p>
+                  </div>
+                </div>
+                <div class="show_tv_set">
+                  <div class="wrap_stc">
+                    <div class="channels">
+                      <ul class="all_set" id="state">
+                        <li id="date_ch">Дата</li>
+                        <li id="sound_set">Звук</li>
+                        <li id="wifi_set">Wi-fi</li>
+                        <li id="connection_type">Тип зєднання</li>
+                        <li id="eco_set">Економ режим</li>
+                      </ul>
+                    </div>
+                    <div class="channel_on">
+                      <div class="channel_show_set">
+                        <div class="date_ch">
+                          <label class="date_form" for="start"
+                            ><p>Змінити дату:</p>
+                          </label>
+
+                          <input
+                            type="date"
+                            id="start"
+                            name="trip-start"
+                            value="2018-07-22"
+                            min="1995-01-01"
+                            max="2021-12-31"
+                          />
+                        </div>
+                        <div class="sound_set">
+                          <div class="slidecontainer">
+                            <p>Звук телевізора:</p>
+
+                            <input type="range" min="1" max="100" value="50" />
+                            <p id="sound_2">50%</p>
+                          </div>
+                        </div>
+                        <div class="wifi_set">
+                          <div class="slidecontainer">
+                            <p id="wifi_state">Wi-fi вимкнуто</p>
+                            <div class="wifi_slider_wrap">
+                              <label class="switch_wifi">
+                                <input type="checkbox" />
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="connection_type">
+                          <div class="connection_wrap">
+                            <ul class="connection_type_item" id="state">
+                              <li id="c1">Супутник</li>
+                              <li id="c2">T2</li>
+                              <li id="c3">Wi-fi</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="eco_set">
+                          <div class="slidecontainer">
+                            <p id="eco_state">Економ режим вимкнуто</p>
+                            <div class="eco_slider_wrap">
+                              <label class="switch_eco">
+                                <input type="checkbox" />
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="channel_set_text">
+                        <p>Ви налаштовуєте Дата</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="bundle.js"></script>
+  </body>
+</html>
