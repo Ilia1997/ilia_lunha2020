@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "bundle.js",
-  "scripts": {
-    "build": "webpack"
-  },
+ 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ilia1997/ilia_lunha2020.git"
@@ -18,12 +16,19 @@
   "homepage": "https://github.com/Ilia1997/ilia_lunha2020#readme",
   "devDependencies": {
     "webpack": "^5.11.0",
-    "webpack-cli": "^4.2.0"
+    "webpack-cli": "^4.2.0",
+    "browserify": "latest",
+    "watchify": "latest"
+  },
+  "scripts": {
+    "build-js": "browserify script.js > bundle.js",
+    "watch-js": "watchify script.js > bundle.js"
   },
   "dependencies": {
     "browserify": "^17.0.0",
     "node-static": "^0.7.11",
     "nodemon": "^2.0.6",
     "requirejs": "^2.3.6"
+  
   }
 }

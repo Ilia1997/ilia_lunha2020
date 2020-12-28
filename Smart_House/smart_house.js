@@ -1,17 +1,25 @@
 class SmartHouse {
   // func for turn on and turn off switches
-  turnOnAndTurnOff() {
-    let tn1 = this.tn.tn1;
+  turnOn() {
     let tn2 = this.tn.tn2;
     let tn3 = this.tn.tn3;
     let tn4 = this.tn.tn4;
-    $(tn1).click(function () {
-      if ($(tn2).css("background-color") === "rgb(204, 204, 204)") {
-        $(tn3).text(tn4 + " ввімкнено");
-      } else if ($(tn2).css("background-color") === "rgb(33, 150, 243)") {
-        $(tn3).text(tn4 + " вимкнено");
-      }
-    });
+    console.log("m1on");
+    if ($(tn2).css("background-color") == "rgb(204, 204, 204)") {
+      $(tn3).text(tn4);
+    }
+  }
+
+  turnOff() {
+    let tn1 = this.tn.tn1;
+    let tn2 = this.tn.tn2;
+    let tn3 = this.tn.tn3;
+    let tn5 = this.tn.tn5;
+    console.log("m2off");
+    if ($(tn2).css("background-color") == "rgb(33, 150, 243)") {
+      $(tn3).text(tn5);
+    }
+    $(tn1 + " input").attr("checked", "1");
   }
   //func for create new items
 
